@@ -1,0 +1,87 @@
+* {
+	font-family:Verdana,Arial,sans-serif;}
+body{
+	background: beige url(flower.png) fixed no-repeat center;
+	background-size:50% 90%}
+
+.active{
+	background-color:grey;
+	font-weight:bold;}
+
+#menu ul {
+	display:flex;
+	list-style-type:none;
+	font-weight:500;
+	margin:0;
+	padding:0;
+	text-align:center}
+
+#menu ul a {
+	display:block;
+	text-decoration:none;
+	color:midnightblue;
+	font-size:15px;
+	text-transform:capitalize;
+	padding:20px}
+
+#menu a:hover{
+	background:#AAB7B8;
+	color:RGB(41,26,80);
+	font-weight:bold;}
+#menu a:visited{
+	color:grey;}
+
+#menu ul li ul {
+	display:none;}
+
+#menu ul li a:hover + ul, #menu ul li ul:hover{
+	display:block;
+	}
+
+h1{
+	text-align:center;
+	color:darkslategrey;
+	padding:30px;
+	text-shadow:5px 5px 20px black;
+	letter-spacing:5px;
+	clear:left;}
+
+h2 {
+	text-align:center;
+	letter-spacing:3px;
+	padding:20px;
+	background-color:lightgray;}
+
+p {
+	text-indent: 50px;
+	text-align:justify;
+	padding:10px;
+	line-height:30px}
+p.subir{
+	text-align:right;
+	font-size:14px;}
+
+li {
+	line-height:30px;}
+ul{
+	margin: 20px;
+	text-align:justify;
+	list-style-type:circle;
+	list-style-position:outside;}
+
+input[type=text] {
+	border:2px solid gray;
+ 	border-radius: 20px;
+	background-color:aliceblue;
+	height:20px;
+	padding:10px;
+	margin:30px;}
+input[type=text]:focus{
+	border:3px solid #555;
+	background-color:darkgrey;}
+textarea{
+	padding:12px 20px;
+ 	border-radius: 10px;
+	height:100px;
+	width:800px;
+	resize:none;}
