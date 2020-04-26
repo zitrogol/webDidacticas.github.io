@@ -1,0 +1,207 @@
+/*para guardar valores-variables y modificar el aspecto mas facil*/
+:root {
+  /*--colorPrincipalMenu: #688b8a;
+  --colorPrincipalMenu: #1E9D9E;*/
+  --colorPrincipalMenu: #1A3974;
+  /*--colorSecundarioMenu: #A0B084;
+  --colorSecundarioMenu: #B6FFFF;*/
+  --colorSecundarioMenu: #344d90;
+  --colorFuenteMenu: lightgray;
+  --colorFuenteTitulo2: white;
+  --colorFondoPrincipal: #f1f1f2;
+}
+
+* {
+	font-family:Verdana,Arial,sans-serif;
+}
+
+body{
+	background: var(--colorFondoPrincipal) url(../img/flower5.png) fixed no-repeat center;
+	background-size:50% 90%;
+}
+
+
+
+.active{/*Para el boton inicio*/
+	/*background-color:#2C4A52;*/
+	/*background-color:red;*/
+	font-weight:bold;	
+}
+
+/*Para hacer que la barra vaya hacia abajo*/
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 1%;
+}
+
+
+#menu ul {
+	/*overflow: auto;*/
+	background-color: var(--colorPrincipalMenu);
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+	/*position: fixed;
+	top: 1%;
+    /*left:0px;*/
+    width: 100%;
+    min-height: 62px;
+    height: 100%;
+}
+
+#menu li {
+	color: var(--colorFuenteMenu);
+	background-color: var(--colorPrincipalMenu);
+	display: block;
+	float: left;
+	padding: 1rem;
+	position: relative;
+	text-decoration: none;
+	transition-duration: 0.5s;
+}
+  
+#menu li a {
+  color: var(--colorFuenteMenu);/*Color de las letras del menu*/
+  text-decoration:none;
+  display: block;
+  /*padding: 20px 20px;*/
+}
+
+#menu li:hover,
+#menu li:focus-within {
+    background: var(--colorSecundarioMenu);
+    cursor: pointer;
+}
+
+#menu li:focus-within a {
+ 	outline: none;
+}
+
+#menu ul li ul {
+	/*background: #688b8a;*/
+	visibility: hidden;
+	opacity: 0;
+	min-width: 5rem;
+	/*position: relative;*/
+	position: absolute;
+  	top: 46px;
+	transition: all 0.5s ease;
+	margin-top: 1rem;
+	/*left: 0;*/
+	display: none;
+}
+
+#menu ul li:hover > ul,
+#menu ul li:focus-within > ul,
+#menu ul li ul:hover,
+#menu ul li ul:focus {
+   visibility: visible;
+   opacity: 1;
+   display: block;
+}
+
+#menu ul li ul li {	
+    clear: both;
+  	width: 87%;
+}
+
+
+
+
+h1{
+	text-align:center;
+	color:darkslategrey;
+	padding:30px;
+	text-shadow:5px 5px 20px black;
+	letter-spacing:5px;
+	clear:left;
+}
+
+h2 {
+	text-align:center;
+	letter-spacing:3px;
+	padding:20px;
+	background-color:var(--colorPrincipalMenu);
+	color:var(--colorFuenteTitulo2);
+	/*text-shadow:5px 5px 20px white;*/
+}
+
+p {
+	text-indent: 50px;
+	text-align:justify;
+	padding:10px;
+	line-height:30px;
+}
+
+p.subir{
+	text-align:right;
+	font-size:14px;
+}
+
+li {
+	line-height:30px;
+}
+
+ul{
+	margin: 20px;
+	text-align:justify;
+	list-style-type:circle;
+	list-style-position:outside;
+}
+
+input[type=text] {
+	border:2px solid gray;
+ 	border-radius: 20px;
+	background-color:aliceblue;
+	height:20px;
+	padding:10px;
+	margin:30px;
+}
+
+input[type=text]:focus{
+	border:3px solid #555;
+	background-color:darkgrey;
+}
+
+textarea{
+	padding:12px 20px;
+ 	border-radius: 10px;
+	height:100px;
+	width:800px;
+	resize:none;
+}
+
+.fullscreen-bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+    background-color:black;
+}
+
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.espacio{
+	min-height: 70px;
+}
+
+.zona{
+	min-height: 100vh;
+	/*height: 100vh;
+	background-color:red; 
+	overflow-y: hidden;
+    position: relative;
+    display: block;
+	overflow: auto;
+}
