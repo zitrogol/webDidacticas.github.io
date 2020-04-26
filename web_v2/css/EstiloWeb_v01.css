@@ -1,0 +1,255 @@
+* {
+	font-family:Verdana,Arial,sans-serif;
+}
+
+body{
+	background: beige url(../img/flower3.png) fixed no-repeat center;
+	background-size:50% 90%;
+}
+
+
+#menu2 ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background-color: #8842d5;
+    position: fixed;
+    top: 0;
+    left:0px;
+    width: 100%;
+}
+
+#menu2 li{
+    /*display: inline;*/
+    float: left;
+    position: relative;/*Se puede quitar*/
+}
+
+#menu2 li:hover{
+    background-color:red;
+}
+
+#menu2 li a {
+    display: block;
+    color: white;
+    text-align: left;
+    padding: 15px 17px;
+    text-decoration: none;
+}
+
+#menu2 li a.active {
+    background-color: #7300ff;
+}
+
+#menu2 ul li ul {
+	background-color: #8842d5;
+	visibility: hidden;
+	display:none;
+	position:relative;
+	/*
+	opacity: 0;
+	min-width: 5rem;
+	transition: all 0.5s ease;
+	margin-top: 1rem;
+	*/
+}
+
+#menu2 ul li ul li{
+	display:block;
+	clear: both;
+	width: 100%;
+}
+
+#menu2 ul li:hover > ul,
+#menu2 ul li:focus-within > ul, /* this is the line we add */
+#menu2 ul li ul:hover {
+	visibility: visible;
+	opacity: 1;
+	display: block;
+}
+
+
+#menu3 ul {
+	background: #688b8a;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+	position: fixed;
+    top: 1%;
+    /*left:0px;*/
+    width: 99%;
+}
+
+#menu3 li {
+	color: #fff;
+	background: #688b8a;
+	display: block;
+	float: left;
+	padding: 1rem;
+	position: relative;
+	text-decoration: none;
+	transition-duration: 0.5s;
+}
+  
+#menu3 li a {
+  color: #fff;
+  text-decoration:none;
+}
+
+#menu3 li:hover,
+#menu3 li:focus-within {
+    background: darkgray;
+    cursor: pointer;
+}
+
+#menu3 li:focus-within a {
+ 	outline: none;
+}
+
+#menu3 ul li ul {
+	background: orange;
+	visibility: hidden;
+	opacity: 0;
+	min-width: 5rem;
+	position: absolute;
+  	top: 46px;
+	transition: all 0.5s ease;
+	margin-top: 1rem;
+	left: 0;
+	display: none;
+}
+
+#menu3 ul li:hover > ul,
+#menu3 ul li:focus-within > ul,
+#menu3 ul li ul:hover,
+#menu3 ul li ul:focus {
+   visibility: visible;
+   opacity: 1;
+   display: block;
+}
+
+#menu3 ul li ul li {
+    clear: both;
+  	width: 100%;
+}
+
+
+
+
+
+
+.active{/*Para el boton inicio*/
+	background-color:grey;
+	font-weight:bold;	
+}
+
+#menu ul {
+	position: fixed; /*Para que se quede fijo*/
+	/*top:250px;*/
+	bottom: 0;
+	left:0px;
+	background-color:lightgray;
+	width:100%;
+	display:flex;
+	list-style-type:none;/*Quitamos las vinyetas de las listas*/
+	font-weight:500;
+	margin:0;/*Para eliminar la configuracion por defecto del navegador*/
+	padding:0;/*Para eliminar la configuracion por defecto del navegador*/
+	text-align:center;
+}
+
+#menu ul a {
+	display:block;
+	text-decoration:none;
+	color:midnightblue;
+	font-size:15px;
+	text-transform:capitalize;
+	padding:20px;
+}
+
+#menu a:hover{
+	background:#AAB7B8;
+	color:RGB(41,26,80);
+	font-weight:bold;
+}
+#menu a:visited{
+	color:grey;}
+
+#menu ul li ul {
+	display:none;
+	position:relative;
+	background-color: #f9f9f9;
+	width: 200px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	padding: 12px 16px;
+	z-index: 1;}
+
+#menu ul li ul li{
+	width:100%;
+}
+
+#menu ul li a:hover + ul, #menu ul li ul:hover{
+	display:block;
+}
+
+h1{
+	text-align:center;
+	color:darkslategrey;
+	padding:30px;
+	text-shadow:5px 5px 20px black;
+	letter-spacing:5px;
+	clear:left;
+}
+
+h2 {
+	text-align:center;
+	letter-spacing:3px;
+	padding:20px;
+	background-color:#688b8a;
+}
+
+p {
+	text-indent: 50px;
+	text-align:justify;
+	padding:10px;
+	line-height:30px;
+}
+
+p.subir{
+	text-align:right;
+	font-size:14px;
+}
+
+li {
+	line-height:30px;
+}
+
+ul{
+	margin: 20px;
+	text-align:justify;
+	list-style-type:circle;
+	list-style-position:outside;
+}
+
+input[type=text] {
+	border:2px solid gray;
+ 	border-radius: 20px;
+	background-color:aliceblue;
+	height:20px;
+	padding:10px;
+	margin:30px;
+}
+
+input[type=text]:focus{
+	border:3px solid #555;
+	background-color:darkgrey;
+}
+
+textarea{
+	padding:12px 20px;
+ 	border-radius: 10px;
+	height:100px;
+	width:800px;
+	resize:none;
+}
