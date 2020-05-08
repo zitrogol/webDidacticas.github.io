@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/EstiloWeb.css">
+	<title> Formulario </title>
+</head>
+
+<body>
+	<!--
+	<div class="sticky">
+		<nav id="menu">
+			<ul>
+			  <li><a href="../index.html" >Inicio</a></li>
+			  <li>Tipos de bucles
+				<ul> 
+				   <li><a href="../index.html#mientras">Mientras</a></li>
+				   <li><a href="../index.html#repetir">Repetir</a></li>
+				   <li><a href="../index.html#desde">Desde</a></li>
+				</ul></li>
+			  <li><a href="#inicio" class="active">Autoevaluaci&oacute;n</a></li>
+			  <li style="float:right"><a href="#sabermas">Informaci&oacute;n</a></li>
+			</ul>
+		</nav>
+	</div>-->
+
+	<div class="header">
+		<span class="tituloPrincipal">WEB: Grupo 5</span>
+	</div>
+	<nav id="menu2">
+		<ul>
+		  <li><a href="../index.html#inicio">Inicio</a></li>  
+		</ul>
+	</nav>
+
+
+<br><br><br>
+	<h1 id="inicio"> Formulario de autoevaluación </h1>
+<form  action="formenviado.html" target="_blank">
+<p>  
+  <fieldset>
+    <legend>Datos de identificaci&oacute;n (obligatorios):</legend>
+	<table width="100%"><tr>
+		<td><label name="nombre">Nombre</label>:<input type="text" name="nombre" placeholder="Pepito" maxlength="30" required/></td>
+		<td><label name="apellidos">Apellidos</label>:<input type="text" name="apellidos" placeholder="P&eacute;rez" maxlength="30" required/></td>
+		<td><label name="curso">Curso</label>:<select name="curso"><option value="" required> </option>
+			<optgroup label="Secundaria"> <option value="1ESO">1º ESO</option> <option value="2ESO">2º ESO</option> 
+		<option value="3ESO">3º ESO</option><option value="4ESO">4º ESO</option> </optgroup> <optgroup label="Bachillerato"> <option value="1Bach">1º Bach</option>
+		<option value="2Bach">2º Bach</option></optgroup></select></td>
+		</tr> 
+	<tr>
+		<td><label name="email">Correo electr&oacute;nico</label>:<input type="email" maxlength="30" placeholder="usuario@dominio.es" required /></td>
+		<td><label name="fechanac">Fecha de nacimiento</label>:<input type="date" min="1980-01-01" max="2010-01-01" required/></td>
+		<td><label name="telefono">Tel&eacute;fono</label>:<input type="tel" id="phone" name="tel" pattern="[0-9]{9}" required></td>
+	</tr></table>
+ </fieldset><br/>
+
+   <p> 1.- Señala las afirmaciones verdaderas:<br/>
+		<input type="checkbox" name="for" id="for" /> El bucle for se ejecuta un número indeterminado de veces y el while un número determinado de veces.<br/>
+		<input type="checkbox" name="durante" id="durante" /> En el bucle <i>do-while</i> se evalúa la condición después de ejecutar las instrucciones.<br/>
+		<input type="checkbox" name="para" id="para" /> Con el bucle <i>while</i> se pueden resolver todos los problemas de instrucciones iterativas.<br/>
+		<input type="checkbox" name="desde" id="desde" /> El bucle <i>for</i> es la solución óptima cuando sabemos las veces que debe ejecutarse el bucle.<br/>
+   </p>
+		  		  
+	<p> 2.- Dado el siguiente c&oacute;digo escrito en Java, que imprime los m&uacute;ltiplos de 4 menores que 100, escribe uno similar utilizando bucles:</p> 
+      <div class="bloqueCodigo1">
+        
+<pre>
+  <code>
+	int x = 0;
+	while (x++ <= 100){
+		System.out.print(x);
+		if (x%4 == 0) 
+			System.out.print(“es m&uacute;ltiplo de cuatro”);
+		System.out.println();
+	}
+  </code>
+</pre>
+        
+      </div>
+
+	<p> <textarea name="codigo" placeholder="Escribe el código aquí..."></textarea></p>
+
+	 <p>3.- &iquest;Qu&eacute; diferencia hay entre bucle <i>while</i> y un bucle <i>for</i>? <br/>
+          <INPUT TYPE="radio" NAME="opcA" VALUE="a"><b>a.</b> El bucle <i>for</i> puede no llegar a ejecutarse nunca pero el <i>while</i> siempre se ejecuta al menos una vez.<br/>
+          <INPUT TYPE="radio" NAME="opcB" VALUE="b"><b>b.</b> El bucle <i>for</i> se ejecuta un n&uacute;mero determinado de veces y el <i>while</i> un n&uacute;mero indeterminado de veces. <br/>  
+          <INPUT TYPE="radio" NAME="opcC" VALUE="c"><b>c.</b> El bucle <i>for</i> no puede convertirse en un bucle <i>while</i> pero s&iacute; al contrario.<br/>
+          <INPUT TYPE="radio" NAME="opcD" VALUE="d"><b>d.</b> El bucle <i>while</i> permite su incializaci&oacute;n pero el bucle <i>for</i> no.<br/>  
+	</p>
+	
+	<p> 4.- Indica si es verdadero o falso: <br/>
+			a) En un bucle <i>for</i>, la condición se comprueba cada vez que entra en el bucle:
+				<INPUT TYPE="radio" NAME="for" value="Verdadero"> Verdadero <INPUT TYPE="radio" NAME="for"value="Falso"> Falso  <br/>
+			b) En un bucle <i>while</i>, los comandos se ejecutan mientras se cumpla la condición indicada:
+				<INPUT TYPE="radio" NAME="while" value="Verdadero"> Verdadero <INPUT TYPE="radio" NAME="for"value="Falso"> Falso  <br>
+			c) En un bucle <i>do-while</i> se evalúa la condición al principio del bucle:
+				<INPUT TYPE="radio" NAME="dowhile" value="Verdadero"> Verdadero <INPUT TYPE="radio" NAME="for"value="Falso"> Falso  </p>
+	<p>* Indica la nota que crees que debes tener (del 1 al 10)? <input type="number" min="1" max="10" required> </p>			
+	<p><input type="submit" value="Submit">  <input type="reset"></p>
+</form>
+
+<p class="subir"> <a href="#inicio"><img src="../img/arrow.png" alt="Flecha arriba" width=30 height=30/>Volver al inicio</a></p> 
+
+  <div class="footer">
+    <h3>M&aacute;ster de Profesorado de Secundaria</h3>
+  </div>
+
+</body>
+</html>
