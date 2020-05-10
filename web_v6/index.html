@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/EstiloWeb.css">
+	<title> Instrucciones iterativas </title>
+
+</head>
+
+<body>
+
+
+
+	<a href="#inicio">
+				
+
+			<div class="fullscreen-bg">
+			    <video id="videoIntro" loop muted autoplay poster="img/ARJ-TECH.png" class="fullscreen-bg__video">
+			        <source src="video/intro4.mp4" type="video/mp4">
+			        	<p>Tu navegador no soporta HTML5 video</p>
+			    </video>
+			</div>	
+
+		
+	</a>
+
+
+	<script type="text/javascript">
+		let video = document.querySelector('videoIntro');
+		window.addEventListener('scroll',function(){
+			let value = 1 + window.scrollY/-600;
+			videoIntro.style.opacity = value;
+		});
+
+		function hover(element) {
+		  element.setAttribute('src', './img/urjc4.png');
+		}
+
+		function unhover(element) {
+		  element.setAttribute('src', './img/urjc.png');
+		}
+
+	</script>
+
+	<div class="header">
+		<span class="tituloPrincipal">WEB: Grupo 5</span>
+	</div>
+
+	<div class="sticky">
+		<nav id="menu">
+			<ul>
+			  <li><a class="active" href="#inicio" >Inicio</a></li>
+			  <li><a href="#tipos">Tipos de bucles</a>
+				<ul> 
+				   <li><a href="#mientras">Mientras</a></li>
+				   <li><a href="#repetir">Repetir</a></li>
+				   <li><a href="#desde">Desde</a></li>
+				</ul></li>
+			  <li><a href="html/formulario.html">Autoevaluaci&oacute;n</a></li>
+			  <li><a href="html/informacion.html">Informaci&oacute;n</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<br><br><br>
+	<div id="zona2" class="zona">
+		<div id="inicio" class="espacio">
+		</div>
+		<div id="intro">
+			<h1> Instrucciones iterativas </h1>
+
+			<p> Las instrucciones iterativas, tambi&eacute;n llamadas bucles o instrucciones repetitivas, son 
+			un tipo de instrucci&oacute;n que permiten que un conjunto o bloque de instrucciones se ejecuten 
+			un n&uacute;mero fijo o variable de veces.</p>
+
+			<p> Son, junto con la secuencia y las instrucciones selectivas, las llamadas estructuras de control, 
+			o instrucciones de control de flujo. Éstas son las que controlan o especifican el orden en el 
+			que las instrucciones de un programa se van a ejecutar. </p>
+
+			<p> Hay 3 diferentes instrucciones iterativas: 
+
+				<ol> 
+					<li><a href="#mientras"> mientras (WHILE)</a> 
+					<li><a href="#repetir"> repetir – hasta (DO-WHILE)</a> 
+					<li><a href="#desde">   desde o para(FOR)</a>
+				</ol>
+			 </p>
+
+			<p> Las instrucciones WHILE y DO-WHILE ejecutan un bloque de instrucciones un n&uacute;mero indeterminado 
+			de veces. La instrucci&oacute;n FOR, normalmente se utiliza para ejecutar un bloque de instrucciones un 
+			n&uacute;mero determinado o fijo de veces.</p>
+
+			<p> Partes de una instrucci&oacute;n iterativa:</p>
+			<ul>
+				<li> <b>Cuerpo</b> del bucle o bloque: Son las instrucciones que se van a ejecutar varias veces.</li>
+				<li> <b>Variable/s controladoras/s</b> del bucle. Son variables que cambian en cada iteraci&oacute;n y de 
+				las que depende la finalizaci&oacute;n del bucle.</li>
+				<li> <b>Condici&oacute;n</b> de terminaci&oacute;n del bucle. Tambi&eacute;n podr&iacute;a considerarse la inversa que es la 
+				condici&oacute;n de continuaci&oacute;n, que lo que se utiliza en la mayor&iacute;a de los lenguajes. Es la condici&oacute;n 
+				que debe cumplirse, o dejar de cumplirse, para que el bloque vuelva a ejecutarse. </li>
+			</ul>
+			
+		</div>
+	</div>	
+	<hr>
+
+	<div id="zona3" class="zona">
+		<div id="mientras" class="espacio">
+		</div>
+
+		<div id="mientras2">
+			<h2> Mientras (<i>WHILE</i>) </h2>
+			<p> La instrucci&oacute;n iterativa WHILE consiste en que se ejecuten los comandos que est&aacute;n incluidos en 
+			ella mientras se cumpla la condici&oacute;n indicada. La condici&oacute;n se eval&uacute;a al principio comprobando si 
+			es cierta, entonces el bloque se ejecuta. Una vez terminado el bloque, la condici&oacute;n del WHILE vuelve 
+			a evaluarse para ver si hay que volver a ejecutar el bloque, por lo que la &uacute;nica manera de que el 
+			programa siga avanzando es que la condici&oacute;n en alg&uacute;n momento deje de cumplirse. En caso contrario, 
+			estar&iacute;amos en un bucle infinito. Por ello, es indispensable que dentro del bloque de instrucciones 
+			que contiene la instrucci&oacute;n WHILE haya alguna instrucci&oacute;n que haga que la condici&oacute;n del bucle deje 
+			de cumplirse. A continuaci&oacute;n, se muestra un ejemplo en pseudoc&oacute;digo del funcionamiento habitual de 
+			un bucle WHILE:</p>
+
+        <div class="bloqueCodigo1" >
+	<pre>
+	  <code>
+		Inicializacion variableControladora
+		Mientras (condici&oacute;n)
+			Bloque de Instrucciones
+			Modificaci&oacute;n variableControladora
+		Fin_Mientras
+	  </code>
+	</pre>
+        </div>
+
+
+
+
+
+			<p> Mediante esta estructura se pueden resolver todos los problemas que incluyan instrucciones 
+			iterativas. Es decir, la instrucci&oacute;n WHILE es capaz de realizar lo mismo que las otras dos 
+			instrucciones, aunque a veces no de la manera &oacute;ptima.</p>
+
+			
+		</div>
+	</div>
+	<p class="subir"><a href="#inicio"><img src="img/arrow.png" alt="Flecha arriba" width=30 height=30/>Volver al inicio</a></p> 
+	<hr>
+
+	<div id="zona4" class="zona">
+		<div id="repetir" class="espacio">
+		</div>
+
+		<div id="repetir2">
+	
+			<h2> Repetir-Hasta (<i>DO-WHILE</i> o <i>REPEAT-UNTIL</i>)</h2>
+
+			<p>En este tipo de instrucci&oacute;n la condici&oacute;n del bucle se eval&uacute;a al final por lo que el bloque de 
+			instrucciones debe ejecutarse al menos una vez independientemente de si la condici&oacute;n se cumple o no. 
+			Tras la ejecuci&oacute;n del bloque se comprueba la condici&oacute;n, volviendo a iniciar la secuencia en los casos 
+			que no se cumpla la condici&oacute;n. En caso de ser verdadera la condici&oacute;n, se pasa a las siguientes secuencias 
+			del programa. Esta instrucci&oacute;n se utiliza cuando el bloque se debe ejecutar siempre una vez, por ejemplo, 
+			cuando se interact&uacute;a con una persona y &eacute;sta deba introducir datos en un programa hasta que introduzca algo 
+			determinado. Hay que tener en cuenta que hay lenguajes en los que cuando la condici&oacute;n se cumple, se vuelve 
+			a ejecutar el bucle. A continuaci&oacute;n, se muestra un ejemplo en pseudoc&oacute;digo del funcionamiento habitual de 
+			un bucle REPEAT-UNTIL:</p>
+
+
+        <div class="bloqueCodigo1" >
+    <pre>
+      <code>
+		  Inicializacion variableControladora
+		  Repetir
+			Bloque de Instrucciones
+			Modificacion variableControladora
+		  Hasta (condici&oacute;n)
+      </code>
+    </pre>
+        </div>
+
+
+			
+		</div>		
+	</div>
+	<p class="subir"> <a href="#inicio"><img src="img/arrow.png" alt="Flecha arriba" width=30 height=30/>Volver al inicio</a></p> 
+	<hr>
+
+	<div id="zona5" class="zona">
+		<div id="desde" class="espacio">
+		</div>
+
+		<div id="desde2">
+
+			<h2> Desde o Para (<i>FOR</i>) </h2>
+
+			<p> Esta instrucci&oacute;n utiliza una variable que se va modificando cada vez que se ejecuta el bucle. Por 
+			tanto, requiere una expresi&oacute;n para valorar cu&aacute;ndo debe detenerse y cu&aacute;l es la modificaci&oacute;n que sufre 
+			(en pseudoc&oacute;digo como es este caso, el incremento a no ser que se especifique lo contrario es 1). Es la 
+			opci&oacute;n &oacute;ptima cuando sabemos cu&aacute;ntas veces tiene que ejecutarse el bloque. A continuaci&oacute;n, se muestra un 
+			ejemplo en pseudoc&oacute;digo del funcionamiento habitual de un bucle FOR:</p> 
+
+      <div class="bloqueCodigo1" >
+    <pre>
+      <code>
+		  Desde i = 1 Hasta 10
+			Bloque de Instrucciones
+		  Fin_Desde
+      </code>
+    </pre>
+      </div>
+
+
+
+			
+      <p> Como se puede ver en el ejemplo, no hay una inicializaci&oacute;n previa ya que &eacute;sta se realiza dentro del propio bucle. La modificaci&oacute;n de la variable controladora, tambi&eacute;n se realiza autom&aacute;ticamente al final del bucle, esto es, despu&eacute;s de haber ejecutado todas las instrucciones del bloque.
+      </p> 
+
+			
+		</div>		
+	</div>
+	<p class="subir"><a href="#inicio"> <img src="img/arrow.png" alt="Flecha arriba" width=30 height=30/>Volver al inicio</a></p> 
+
+
+  	<div class="filaPie">
+	  <div class="columnaPie izda">
+	    <h3></h3>
+	  </div>
+	  <div class="columnaPie centro">
+	    <h3>M&aacute;ster de Profesorado de Secundaria</h3>
+	  </div>
+	  <div class="columnaPie dcha">
+	  	<a href="https://www.urjc.es">
+	    	<img src="./img/urjc.png" alt="HTML5 Doctor Logo" height="50" id="logo" onmouseover="hover(this);" onmouseout="unhover(this);"/>
+		</a>
+	  </div>
+	</div>
+
+</body>
+</html>

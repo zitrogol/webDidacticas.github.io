@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../css/EstiloWeb.css">
+	<title> Formulario </title>
+	<script type="text/javascript">
+		sessionStorage.clear();//Limpiamos los posibles datos guardados
+
+		function revision(){
+			var respuestas = [];
+
+			var p11 = document.getElementsByName('for')[0];//document.autoevaluacion.for;
+			if(p11.checked){
+				respuestas.push("Los bucles se ejecutan siempre un numero determinado de veces, si son correctos");
+			}else{
+				respuestas.push("-");
+			}
+
+			var p12 = document.getElementsByName('durante')[0];//document.autoevaluacion.durante;
+			if(p12.checked){
+				respuestas.push("-");
+			}else{
+				respuestas.push("Es verdadera");
+			}
+
+			var p13 = document.getElementsByName('para')[0];//document.autoevaluacion.para;
+			if(p13.checked){
+				respuestas.push("-");
+			}else{
+				respuestas.push("Es verdadera");
+			}
+
+			var p14 = document.getElementsByName('desde')[0];//document.autoevaluacion.desde;
+			if(p14.checked){
+				respuestas.push("-");
+			}else{
+				respuestas.push("Es verdadera");
+			}
+
+			/*
+			var cadena="";
+			window.alert(respuestas.length);
+			for(var i=0;i<respuestas.length;i++){
+				cadena+=respuestas[i]+"-";
+			}
+			window.alert(cadena);
+			*/
+
+			/*if (p11.checked == true){
+				window.alert("p11 activado");
+			} else {
+				window.alert("p11 desactivado");
+			}*/
+			//Area de texto
+			var p2 = document.getElementsByName('codigo')[0];
+			//window.alert("p2 text:"+p2.value);
+			var cadenaLimpia = p2.value;
+			//window.alert("p2 cadena Limpia:"+cadenaLimpia.replace(/\s/g, ""));
+			cadenaLimpia = cadenaLimpia.replace(/\s/g, "");
+			//cadenaLimpia = cadenaLimpia.valueOf();
+			//console.log("CADENA: "+cadenaLimpia);
+			if(cadenaLimpia=="while(x<101)" || cadenaLimpia=="for(;x<101;)" || cadenaLimpia=="for(x=0;x<=100;)" || cadenaLimpia=="for(;x<=100;)"|| 
+						cadenaLimpia=="for(x=0;x<101;)" ||cadenaLimpia=="while(x<101){" || cadenaLimpia=="for(;x<101;){" || cadenaLimpia=="for(;x<=100;){"|| 
+						cadenaLimpia=="for(x=0;x<=100;){" || cadenaLimpia=="for(x=0;x<101;){"){
+				respuestas.push("-");
+			}else{
+				respuestas.push("for(x=0;x<=100;) o for(x=0;x<101;) o for(;x<101;) o while(x<101)");
+			}
+			//console.log("CADENA: "+respuestas);
+			//window.alert("CADENA: "+respuestas);
+			//lista seleccion multiple
+			var p3 = document.getElementsByName('pregun3')[0];
+
+			if(p3.length==4){
+				if(p3[0].selected){
+					respuestas.push("El bucle while puede que tampoco se ejecute");
+				}else{
+					respuestas.push("-");
+				}
+				if(p3[1].selected){
+					respuestas.push("El bucle while se ejecuta un numero determinado de veces, si es correcto");
+				}else{
+					respuestas.push("-");
+				}
+				if(p3[2].selected){
+					respuestas.push("El FOR si puede convertirse en un while, aunque no es lo mejor");
+				}else{
+					respuestas.push("-");
+				}
+				if(p3[3].selected){
+					respuestas.push("El FOR tambien permite su inicializacion");
+				}else{
+					respuestas.push("-");
+				}
+
+			}else{
+				window.alert("¡¡¡ ESTO NO DEBERIA ESTAR SALIENDO !!!");
+			}
+			/*
+			for (i = 0; i < p3.length; i++){
+				if (p3[i].selected == true){
+					window.alert("p3 seleccionados:"+p3[i].value);
+				}else{
+					window.alert("p3 NO seleccionados:"+p3[i].value);
+				}
+			}*/
+			//console.log("CADENA: "+respuestas);
+
+			//radiobutons
+			var p41 = document.getElementsByName('for')[1];//document.autoevaluacion.for;
+			if(p41.checked){
+				respuestas.push("-");
+			}else{
+				respuestas.push("Es verdadera");
+			}
+			//window.alert("p41 text:"+p41.checked);
+			var p42 = document.getElementsByName('while')[0];//document.autoevaluacion.durante;
+			if(p42.checked){
+				respuestas.push("-");
+			}else{
+				respuestas.push("Es verdadera");
+			}
+			//window.alert("p42 text:"+p42.checked);
+			var p43 = document.getElementsByName('dowhile')[0];//document.autoevaluacion.para;
+			if(p43.checked){
+				respuestas.push("Se evalua al final");
+			}else{
+				respuestas.push("-");
+			}
+			//window.alert("p43 text:"+p43.checked);
+
+			//console.log("CADENA: "+respuestas);
+			sessionStorage.setItem('respuestas', JSON.stringify(respuestas));
+
+			if (!confirm("Estás seguro de que quieres enviar?")) {
+				return false;
+			}
+			//window.alert("******************************** FIN ***********************************");
+			//return false;
+
+		}
+
+		function mostrarPregunta(elem) {
+    		   //alert(elem.id);
+    		if(elem.id=="botonEmpezarTest"){
+    			var pregunta = document.getElementById('pregunta1');
+    			pregunta.style.display="block";
+    			elem.style.display="none";
+    		}else if(elem.id=="botonP1"){
+    			var pregunta = document.getElementById('pregunta2');
+    			pregunta.style.display="block";
+    			elem.style.display="none";
+    		}else if(elem.id=="botonP2"){
+    			var pregunta = document.getElementById('pregunta3');
+    			pregunta.style.display="block";
+    			elem.style.display="none";
+    		}else if(elem.id=="botonP3"){
+    			var pregunta = document.getElementById('pregunta4');
+    			pregunta.style.display="block";
+    			elem.style.display="none";
+    		}
+		}
+
+		function validarDatos(elem){
+			
+			var nombre=document.autoevaluacion.nombre;
+			var apellidos=document.autoevaluacion.apellidos;
+			var curso=document.autoevaluacion.curso;
+			var email=document.autoevaluacion.email;
+			var fecha=document.autoevaluacion.fecha;
+			var tel=document.autoevaluacion.telefono;
+
+			
+
+			//Validamos el nombre
+			var texto = "Por favor, introduce un nombre correcto"
+			if (nombre.value.trim()=="") {					
+				nombre.setCustomValidity(texto);
+				nombre.focus();
+				window.alert(texto);
+				return false;
+			}
+
+			//Validamos apellidos
+			texto = "Por favor, introduce apellidos"
+			if (apellidos.value.trim()=="") {
+					apellidos.setCustomValidity(texto);
+					apellidos.focus();
+					window.alert(texto);
+					return false;
+				}
+
+			//Validamos apellidos
+			texto = "Por favor, selecciona un curso"
+			if (curso.value=="") {
+				curso.setCustomValidity(texto);
+				curso.focus();
+				window.alert(texto);
+				return false;
+			}
+
+			texto = "Por favor, introduce un email correcto"
+			valorEmail=email.value.trim()
+			var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			var patron = new RegExp("^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}");
+			if (!re.test(valorEmail)){
+				email.setCustomValidity(texto);
+				email.focus();
+				window.alert(texto);
+				return false;
+			}
+
+			var fechaReg = /^(\d{4})[./-](\d{1,2})[./-](\d{1,2})$/;
+			texto = "Por favor, introduce una fecha de nacimiento correcta";
+			if (!fechaReg.test(fecha.value)) {
+				//document.getElementById("demo").innerHTML = inpObj.validationMessage;
+				fecha.setCustomValidity(texto);
+				fecha.focus();
+				window.alert(texto+"-"+fecha.value);
+				return false;
+			}
+
+			texto = "Por favor, introduce un telefono correcto"
+			var telReg = /^[6789]{1}[0-9]{8}/
+			if (!telReg.test(tel.value)){
+				//document.getElementById("demo").innerHTML = inpObj.validationMessage;
+				tel.setCustomValidity(texto);
+				tel.focus();
+				window.alert(texto);
+				return false;
+			}
+
+			/*
+			if (fecha.value != "/^\d{1,2}\/\d{1,2}\/\d{2,4}$/"){
+				fecha.setCustomValidity(texto);
+				fecha.focus();
+				window.alert(texto);
+				return false;		
+			}*/
+			//window.alert("*** VALIDADO ***");
+			mostrarPregunta(elem);
+
+			/*
+			var aviso=document.getElementById("aviso");
+			aviso.innerHTML=" "
+			var enviar="ok"
+			
+			if (nombre.value=="" || nombre.value.indexOf(" ") == 0) {
+				var texto = "Por favor, introduce tu nombre."  
+	            aviso.innerHTML += texto
+				enviar="no"
+			}
+			
+			if (apellidos.value=="" || apellidos.value.indexOf(" ") == 0){
+				var texto = "Por favor, introduce tus apellidos."  
+	            aviso.innerHTML += texto
+				enviar="no"
+			}			
+						
+			if (curso=="" || curso=null){
+				texto = "Es obligatorio introducir el curso."
+				aviso.innerHTML += texto
+				enviar="no"
+			}
+			
+			email=email.value
+			email=email.toString()
+			patron=	"/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}"
+
+			if (patron.text(email)!=true{
+				texto = "El email introducido no es correcto."
+				aviso.innerHTML += texto
+				enviar="no"
+			}
+			
+			if (fechanac.value != "/^\d{1,2}\/\d{1,2}\/\d{2,4}$/"){
+				texto = "La fecha de nacimiento introducida no es correcta."
+				aviso.innerHTML += texto
+				enviar="no"			
+			}
+				
+			if (tel.value != "/^[9|6|7]{1}([\d]{2}[-]*){3}[\d]{2}$/"){
+				texto = "El teléfono introducido no es correcto. Debe"
+				aviso.innerHTML += texto
+				enviar="no"			
+			}		*/			
+		}
+
+		
+	</script>
+</head>
+
+<body>
+	<!--
+	<div class="sticky">
+		<nav id="menu">
+			<ul>
+			  <li><a href="../index.html" >Inicio</a></li>
+			  <li>Tipos de bucles
+				<ul> 
+				   <li><a href="../index.html#mientras">Mientras</a></li>
+				   <li><a href="../index.html#repetir">Repetir</a></li>
+				   <li><a href="../index.html#desde">Desde</a></li>
+				</ul></li>
+			  <li><a href="#inicio" class="active">Autoevaluaci&oacute;n</a></li>
+			  <li style="float:right"><a href="#sabermas">Informaci&oacute;n</a></li>
+			</ul>
+		</nav>
+	</div>-->
+
+	<div class="header">
+		<span class="tituloPrincipal">WEB: Grupo 5</span>
+	</div>
+	<nav id="menu2">
+		<ul>
+		  <li><a href="../index.html#inicio">Inicio</a></li>  
+		</ul>
+	</nav>
+
+
+<br><br><br>
+	<h1 id="inicio"> Formulario de autoevaluaci&oacute;n </h1>
+	<!--onsubmit="return submitForm(this);"-->
+<form name="autoevaluacion" action="formenviado.html" target="_self" novalidate>
+<p>  
+  <fieldset>
+    <legend>Datos de identificaci&oacute;n (obligatorios):</legend>
+	<table width="100%">
+		<tr>
+			<td><label name="nombre">Nombre</label>:<input type="text" name="nombre" placeholder="Pepito" maxlength="30" required/></td>
+			<td><label name="apellidos">Apellidos</label>:<input type="text" name="apellidos" placeholder="P&eacute;rez" maxlength="30" required/></td>
+			<td><label name="curso">Curso</label>:<select name="curso" required class="select1"><option value=""> </option>
+				<optgroup label="Secundaria"> <option value="1ESO">1&deg; ESO</option> <option value="2ESO">2&deg; ESO</option> 
+				<option value="3ESO">3&deg; ESO</option><option value="4ESO">4&deg; ESO</option> </optgroup> 
+				<optgroup label="Bachillerato"> <option value="1Bach">1&deg; Bach</option>
+				<option value="2Bach">2&deg; Bach</option></optgroup></select></td>
+		</tr> 
+		<tr>
+			<td><label name="email">Correo electr&oacute;nico</label>:<input name="email" type="email" maxlength="30" placeholder="usuario@dominio.es" required /></td>
+			<td><label name="fechanac">Fecha de nacimiento</label>:<input name="fecha" type="date" min="1910-01-01" max="2010-01-01" required/></td>
+			<td><label name="telefono">Tel&eacute;fono</label>:<input name="telefono" type="text" pattern="[6789]{1}[0-9]{8}" required></td>
+		</tr>
+	</table>
+
+ </fieldset><br/>
+
+ 
+
+ <div class="botonEmpezar">
+ 	<button class="botonFormulario" id="botonEmpezarTest" onclick="validarDatos(this)" type="button">Empezar Examen</button>
+</div>
+<!-- <div class="contenedorPreguntas">-->
+	<div class="preguntas" id="pregunta1">
+	   <p> 1.- Se&ntilde;ala las afirmaciones verdaderas:<br/><br/>
+			<input type="checkbox" name="for" id="for" /> El bucle for se ejecuta un n&uacute;mero indeterminado de veces y el while un n&uacute;mero determinado de veces.<br/>
+			<input type="checkbox" name="durante" id="durante" /> En el bucle <i>do-while</i> se eval&uacute;a la condici&oacute;n despu&eacute;s de ejecutar las instrucciones.<br/>
+			<input type="checkbox" name="para" id="para" /> Con el bucle <i>while</i> se pueden resolver todos los problemas de instrucciones iterativas.<br/>
+			<input type="checkbox" name="desde" id="desde" /> El bucle <i>for</i> es la soluci&oacute;n &oacute;ptima cuando sabemos las veces que debe ejecutarse el bucle.<br/>
+	   </p>
+		<div class="botonEmpezar">
+			<button class="botonFormulario" id="botonP1" onclick="mostrarPregunta(this)" type="button">Abrir Pregunta 2</button>
+		</div>
+	</div>
+<!--</div>-->
+
+
+<div id="pregunta2">
+
+	<p> 2.- Dado el siguiente c&oacute;digo escrito en Java, que imprime los n&uacute;meros del 1 al 100 y dice cuales son m&uacute;ltiplos de 4 menores, escribe la l&iacute;nea o l&iacute;neas dfe código necesarias para que, sustituyendo la l&iacute;nea mostrada con el fondo diferente, el programa haga lo mismo. Puedes utilizar bucles diferentes:</p> 
+      <div class="bloqueCodigo1">
+        
+<pre>
+  <code>
+	int x = 0;
+	<span class="lineaExtra">while (x <= 100){</span>
+		System.out.print(x);
+		if (x%4 == 0) 
+			System.out.println(&#8220; es m&uacute;ltiplo de cuatro&#8221;);
+		x+=1;
+	}
+  </code>
+</pre>
+        
+      </div>
+
+      <p> <textarea name="codigo" placeholder="Escribe el c&oacute;digo aqu&iacute;..."></textarea></p>
+		<div class="botonEmpezar">
+			<button class="botonFormulario" id="botonP2" onclick="mostrarPregunta(this)" type="button">Abrir Pregunta 3</button>
+		</div>
+</div>
+
+
+	
+<div id="pregunta3">
+	 <p>3.- &iquest;Qu&eacute; diferencia hay entre bucle <i>while</i> y un bucle <i>for</i>? Selecciona <b>TODAS</b> las correctas
+         <!-- <INPUT TYPE="checkbox" NAME="opcA" VALUE="a"/><b>a.</b> El bucle <i>for</i> puede no llegar a ejecutarse nunca pero el <i>while</i> siempre se ejecuta al menos una vez.<br/>
+          <INPUT TYPE="checkbox" NAME="opcB" VALUE="b"/><b>b.</b> El bucle <i>for</i> se ejecuta un n&uacute;mero determinado de veces y el <i>while</i> un n&uacute;mero indeterminado de veces. <br/>  
+          <INPUT TYPE="checkbox" NAME="opcC" VALUE="c"/><b>c.</b> El bucle <i>for</i> no puede convertirse en un bucle <i>while</i> pero s&iacute; al contrario.<br/>
+          <INPUT TYPE="checkbox" NAME="opcD" VALUE="d"/><b>d.</b> El bucle <i>while</i> permite su incializaci&oacute;n pero el bucle <i>for</i> no.<br/>  
+      -->
+	</p>
+
+	<select name="pregun3" size="4" class="select2" multiple>
+		<option value="op1">El bucle <i>for</i> puede no llegar a ejecutarse nunca pero el <i>while</i> siempre se ejecuta al menos una vez</option>
+		<option value="op2">El bucle <i>for</i> se ejecuta un n&uacute;mero determinado de veces y el <i>while</i> un n&uacute;mero indeterminado de veces</option>
+		<option value="op3">El bucle <i>for</i> no puede convertirse en un bucle <i>while</i> pero s&iacute; al contrario</option>
+		<option value="op4">El bucle <i>while</i> permite su incializaci&oacute;n pero el bucle <i>for</i> no</option>
+	</select>
+
+	<p></p>
+		<div class="botonEmpezar">
+			<button class="botonFormulario" id="botonP3" onclick="mostrarPregunta(this)" type="button">Abrir Pregunta 4</button>
+		</div>
+</div>
+<div id="pregunta4">
+
+	<p> 4.- Indica si es verdadero o falso: <br/>
+		<!--
+			a) En un bucle <i>for</i>, la condici&oacute;n se comprueba cada vez que entra en el bucle:
+				<INPUT TYPE="radio" NAME="for" value="Verdadero"/> Verdadero <INPUT TYPE="radio" NAME="for"value="Falso"/> Falso  <br/>
+			b) En un bucle <i>while</i>, los comandos se ejecutan mientras se cumpla la condici&oacute;n indicada:
+				<INPUT TYPE="radio" NAME="while" value="Verdadero"/> Verdadero <INPUT TYPE="radio" NAME="for"value="Falso"/> Falso  <br>
+			c) En un bucle <i>do-while</i> se eval&uacute;a la condici&oacute;n al principio del bucle:
+				<INPUT TYPE="radio" NAME="dowhile" value="Verdadero"/> Verdadero <INPUT TYPE="radio" NAME="for"value="Falso"/> Falso  </p>
+		-->
+
+	<div class="fila">
+	  <div class="columna ladoIzda">
+	    a) En un bucle <i>for</i>, la condici&oacute;n se comprueba cada vez que entra en el bucle, al inicio:<br/>
+	  </div>
+	  <div class="columna ladoDcha">
+	    <INPUT TYPE="radio" name="for" value="Verdadero"/> Verdadero <INPUT TYPE="radio" name="for"value="Falso"/> Falso  <br/>
+	  </div>
+	</div>
+	<div class="fila">
+	  <div class="columna ladoIzda">
+	   
+	    b) En un bucle <i>while</i>, los comandos se ejecutan mientras se cumpla la condici&oacute;n indicada:<br/>
+	   
+	  </div>
+	  <div class="columna ladoDcha">
+	    
+	    <INPUT TYPE="radio" name="while" value="Verdadero"/> Verdadero <INPUT TYPE="radio" name="while" value="Falso"/> Falso  <br>
+	  </div>
+	</div>
+	<div class="fila">
+	  <div class="columna ladoIzda">
+	    c) En un bucle <i>do-while</i> se eval&uacute;a la condici&oacute;n al principio del bucle:<br/>
+	  </div>
+	  <div class="columna ladoDcha">
+	    <INPUT TYPE="radio" name="dowhile" value="Verdadero"/> Verdadero <INPUT TYPE="radio" name="dowhile" value="Falso"/> Falso  </p>
+	  </div>
+	</div>
+
+
+	<!--
+	<p>Si quieres, indica la nota que crees que vas a tener (del 1 al 10)? <input type="number" min="1" max="10"/> </p>	
+	-->
+	<div class="botonEmpezar">		
+		<input class="botonFormulario" type="submit" value="Enviar" onclick="return revision()"/> <input class="botonFormulario" type="reset" value="Borrar Respuestas"/>
+		<!--<input class="botonFormulario" type="submit" value="Enviar"/> <input class="botonFormulario" type="reset" value="Borrar Respuestas"/>-->
+	</div>
+</div>
+</form>
+
+<p class="subir"> <a href="#inicio"><img src="../img/arrow.png" alt="Flecha arriba" width=30 height=30/>Volver al inicio</a></p> 
+
+  <div class="footer">
+    <h3>M&aacute;ster de Profesorado de Secundaria</h3>
+  </div>
+
+</body>
+</html>
