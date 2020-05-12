@@ -9,38 +9,21 @@
 
 <body>
 
-
-
 	<a href="#inicio">
-				
-
-			<div class="fullscreen-bg">
-			    <video id="videoIntro" loop muted autoplay poster="img/ARJ-TECH.png" class="fullscreen-bg__video">
-			        <source src="video/intro4.mp4" type="video/mp4">
-			        	<p>Tu navegador no soporta HTML5 video</p>
-			    </video>
-			</div>	
-
-		
+		<div class="fullscreen-bg">
+		    <video id="videoIntro" loop muted autoplay poster="img/ARJ-TECH.png" class="fullscreen-bg__video">
+		        <source src="video/intro4.mp4" type="video/mp4">
+		        	<p>Tu navegador no soporta HTML5 video</p>
+		    </video>
+		</div>	
 	</a>
-
-
-	<script type="text/javascript">
-		let video = document.querySelector('videoIntro');
+	 <script>
+	 	let video = document.querySelector('videoIntro');
 		window.addEventListener('scroll',function(){
 			let value = 1 + window.scrollY/-600;
 			videoIntro.style.opacity = value;
 		});
-
-		function hover(element) {
-		  element.setAttribute('src', './img/urjc4.png');
-		}
-
-		function unhover(element) {
-		  element.setAttribute('src', './img/urjc.png');
-		}
-
-	</script>
+	 </script> 
 
 	<div class="header">
 		<span class="tituloPrincipal">WEB: Grupo 5</span>
